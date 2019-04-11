@@ -53,7 +53,7 @@ class LogIn extends React.Component{
                     />
                     <button>SUBMIT</button>
                     {this.props.loggingIn ? (
-                            <Loader type="Circles" color="blue" height={100} width={100}/>
+                            <h1>Loggin In</h1>
                         ) : (
                             null
                         )

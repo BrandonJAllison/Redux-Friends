@@ -5,7 +5,7 @@ import LogIn from './Components/Login'
 import PrivateRoute from './Components/PrivateRoute'
 import FriendsList from './Components/FriendsList'
 import { connect } from 'react-redux';
-
+import Header from './Components/Header'
 
 
 class App extends React.Component {
@@ -14,12 +14,14 @@ class App extends React.Component {
   render(){
     return (
       <Router>
-        <div>
-              <Link to="/public">Public Page</Link>
-              <Link to="/friendslist">Friend's List</Link>
-
-                <h1>Friends List</h1>
-          <Route path="/login" component={LogIn} />
+        <div className="App">
+          
+             <Header />
+           
+          <h1>Friends List</h1>
+          
+          <Route path="/login" component={LogIn} /> 
+          
           <PrivateRoute 
             path="/friendslist" 
             component={() => <FriendsList friends={this.props.friends} />}
@@ -37,3 +39,4 @@ const mapStateToProps = state => {
 }
 
 export default connect (mapStateToProps, {}) (App);
+
