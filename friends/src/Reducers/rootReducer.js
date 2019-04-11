@@ -3,7 +3,7 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
     FETCH_FRIENDS,
-    FETCH_GOOD,
-    FETCH_BAD
+    FETCH_COMPLETE,
+    FETCH_FAILED
 } from '../Actions';
 
