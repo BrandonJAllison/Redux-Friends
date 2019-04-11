@@ -43,13 +43,7 @@ const Header = () => {
                         color: "white",
                         opacity: "1"
                         }}  to ="/logout">Log Out</NavLink>
-             <NavLink 
-                        style={style}
-                        activeStyle={{
-                        textDecoration: "underline",
-                        color: "white",
-                        opacity: "1"
-                        }}  to ="/addfriend">Add Friend</NavLink>
+             
 
         </div>
     )

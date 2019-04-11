@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { addFriend } from "../Actions";
 
 const div = {
     display: 'flex',
@@ -48,26 +50,17 @@ class AddFriends extends Component{
         });
       };
 
-    addFriend = event => {
+      submitHandle = event => {
         event.preventDefault();
-        this.props.addFriendsToServer(this.state.friends);
-        alert("Friend Added")
-        this.setState({
-            friends: {
-                name: "",
-                age: "",
-                email: ""
-            }
-            
-        });
-    }
-
+        this.props.addFriend(this.state.friends);
+        alert('Friend Added')
+      };
 
     render(){
         return(
             <div >
                 <p>Here you can add friends to the list, just enter the information and click the submit button!</p>
-                <form style={div} onSubmit={this.addFriend}>
+                <form style={div} onSubmit={this.submitHandle}>
                     <input style={input} type="text" name="name" required='required' placeholder="Name" value={this.state.friends.name} onChange={this.handleChange} />
                     <input style={input} type="number" name="age" required='required' placeholder="Age" value={this.state.friends.age} onChange={this.handleChange}/>
                     <input style={input} type="email"  name="email" placeholder="Email" required='required' value={this.state.friends.email} onChange={this.handleChange}/>
@@ -78,4 +71,18 @@ class AddFriends extends Component{
     }
 }
 
-export default AddFriends;
+const mapStateToProps = state => (
+    
+    {
+      friends: state.friends
+    }
+  );
+  
+  export default connect(
+    mapStateToProps,
+    {
+     
+      addFriend,
+      
+    }
+  )(AddFriends);

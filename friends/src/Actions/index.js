@@ -8,10 +8,13 @@ export const FETCH_COMPLETE = "FETCH_COMPLETE";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 export const ADD_FRIEND ="ADD_FRIEND";
 export const FRIEND_ADDED ="FRIEND_ADDED";
-export const FRIEND_ADD_FAILED ="FRIEND_ADD_FAILED"
+export const DELETING_FRIEND = "DELETINGFRIEND";
+export const FRIEND_DELETED = "FRIENDDELETED";
+
 
 
 export const login = creds => dispatch => {
+    console.log("action call, LOGGING_IN")
     dispatch({ type: LOGGING_IN});
     return axios
         .post("http://localhost:5000/api/login", creds)
@@ -42,6 +45,7 @@ export const getData = () => {
 }
 
 export const fetchFriends = () => dispatch => {
+    console.log("action call, FETCH")
     dispatch({ type: FETCH_FRIENDS});
     return axios
         .get("http://localhost:5000/api/friends", { headers: { Authorization: localStorage.getItem('token')}})
@@ -54,15 +58,30 @@ export const fetchFriends = () => dispatch => {
         })
 }
 
-export const addFriend = (info, id) => dispatch => {
-    dispatch({ type: ADD_FRIEND});
-    return axios
-        .put(`http://localhost:5000/api/friends${id}`, info)
-        .then(res => {
-            console.log(res)
-            dispatch({ type: FRIEND_ADDED, payload: res.data})
-        })
-        .catch(err => {
-            dispatch({ type: FRIEND_ADD_FAILED, payload: err})
-        })
-}
+export const addFriend = friend => dispatch => {
+    console.log("action call, POST");
+    dispatch({ type: ADD_FRIEND });
+    axios
+      .post('http://localhost:5000/api/friends', friend, { headers: { Authorization: localStorage.getItem('token')}})
+      .then(response => {
+        console.log("ADD FRIEND", response);
+        dispatch({ type: FRIEND_ADDED, payload: response.data });
+      })
+      .catch(err => ({ err }));
+  };
+  
+  
+  export const deleteFriend = id => dispatch => {
+    console.log("action call, DELETE");
+    dispatch({ type: DELETING_FRIEND });
+    axios
+    .delete(`http://localhost:5000/api/friends/${id}`)
+    .then(response => {
+        console.log("DELETED FRIEND");
+        dispatch({ type: FRIEND_DELETED, payload: response.data });
+      })
+      .catch(err => {
+        dispatch({ err });
+      });
+  };
+  

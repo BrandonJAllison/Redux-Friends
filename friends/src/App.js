@@ -25,6 +25,7 @@ class App extends React.Component {
 
           <Route path="/login" component={LogIn} /> 
           <Route path="/addfriend" component={AddFriends}/>
+          
           <Route path="/logout" component={Logout}/>
 
           <PrivateRoute 
@@ -37,11 +38,12 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => (
+    
+  {
     friends: state.friends
   }
-}
+);
 
 export default connect (mapStateToProps, {}) (App);
 
