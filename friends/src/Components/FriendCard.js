@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 import { deleteFriend } from "../Actions";
 
 const icon ={
-  color: '#A0001E' 
+  color: '#A0001E',
+  background: 'white',
+  border: 'red' 
 }
 const mainDiv ={
     display: 'flex',
@@ -32,7 +34,7 @@ class FriendCard extends React.Component{
                 <h2>Name: {this.props.friend.name}</h2>
                 <h3>Age: {this.props.friend.age}</h3>
                 <h3>E-mail: {this.props.friend.email}</h3>
-                <button onClick={() => this.clickHandle(this.props.friend.id)}><i className="far fa-trash-alt"></i></button>
+                <button style={icon} onClick={() => this.clickHandle(this.props.friend.id)}><i  className="far fa-trash-alt"></i></button>
             </div>
             </div>
         )
