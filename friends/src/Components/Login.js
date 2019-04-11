@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 import { login, fetchFriends } from '../Actions';
 import {Loader} from 'react-loader-spinner'
 
+const form = {
+    margin: '50px 15px',
+    border: 'none',
+    borderBottom: '2px solid #A0001E',
+    height: '20px',
+    width: '200px'
+
+}
+
+
 class LogIn extends React.Component{
     state = {
         credentials: {
@@ -34,7 +44,7 @@ class LogIn extends React.Component{
         return (
             <div>
                 <form onSubmit={this.login}>
-                    <input
+                    <input style={form}
                         type="text"
                         name="username"
                         required='required'
@@ -43,7 +53,7 @@ class LogIn extends React.Component{
                         placeholder="username..."
                     />
 
-                    <input
+                    <input style={form}
                         type="password"
                         name="password"
                         required='required'

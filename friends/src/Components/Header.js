@@ -1,17 +1,55 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import './Components.css';
+
 
 const header={
-    height: '25px',
+    height: '60px',
     color: 'white',
-    background: 'black'
+    background: '#A0001E',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+}
+
+const style ={
+    color: 'white',
+    textDecoration: 'none',
+    opacity: '.6'
 }
 
 const Header = () => {
     return (
         <div style={header}>
 
-            <Link to ="/login">Login</Link>
+            <NavLink   to ="/login" 
+                        style={style}
+                        activeStyle={{
+                        textDecoration: "underline",
+                        color: "white",
+                        opacity: "1"
+                        }}>Login</NavLink>
+            <NavLink 
+                       style={style}
+                       activeStyle={{
+                       textDecoration: "underline",
+                       color: "white",
+                       opacity: "1"
+                        }}  to ="/friendslist">Friends List</NavLink>
+            <NavLink 
+                        style={style}
+                        activeStyle={{
+                        textDecoration: "underline",
+                        color: "white",
+                        opacity: "1"
+                        }}  to ="/logout">Log Out</NavLink>
+             <NavLink 
+                        style={style}
+                        activeStyle={{
+                        textDecoration: "underline",
+                        color: "white",
+                        opacity: "1"
+                        }}  to ="/addfriend">Add Friend</NavLink>
 
         </div>
     )

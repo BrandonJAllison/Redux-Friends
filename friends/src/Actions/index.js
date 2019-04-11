@@ -6,6 +6,9 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const FETCH_FRIENDS = "FETCH_FRIENDS";
 export const FETCH_COMPLETE = "FETCH_COMPLETE";
 export const FETCH_FAILURE = "FETCH_FAILURE";
+export const ADD_FRIEND ="ADD_FRIEND";
+export const FRIEND_ADDED ="FRIEND_ADDED";
+export const FRIEND_ADD_FAILED ="FRIEND_ADD_FAILED"
 
 
 export const login = creds => dispatch => {
@@ -48,5 +51,18 @@ export const fetchFriends = () => dispatch => {
         })
         .catch(err => {
             dispatch({ type: FETCH_FAILURE, payload: err})
+        })
+}
+
+export const addFriend = (info, id) => dispatch => {
+    dispatch({ type: ADD_FRIEND});
+    return axios
+        .put(`http://localhost:5000/api/friends${id}`, info)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: FRIEND_ADDED, payload: res.data})
+        })
+        .catch(err => {
+            dispatch({ type: FRIEND_ADD_FAILED, payload: err})
         })
 }

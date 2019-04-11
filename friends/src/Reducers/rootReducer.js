@@ -4,7 +4,10 @@ import {
     LOGIN_FAILURE,
     FETCH_FRIENDS,
     FETCH_COMPLETE,
-    FETCH_FAILURE
+    FETCH_FAILURE,
+    ADD_FRIEND,
+    FRIEND_ADDED,
+    FRIEND_ADD_FAILED
 } from '../Actions';
 
 const initialState = {
@@ -60,6 +63,22 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 fetchingFriends: false,
+                
+            }
+
+        case ADD_FRIEND:
+            return {
+                ...state,
+                error: '',
+                savingFriends: true
+            }
+
+        case FRIEND_ADDED:
+            return {
+                ...state,
+            }
+        case FRIEND_ADD_FAILED:
+            return {
                 
             }
 
