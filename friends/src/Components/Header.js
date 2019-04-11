@@ -36,7 +36,8 @@ const Header = () => {
                        color: "white",
                        opacity: "1"
                         }}  to ="/friendslist">Friends List</NavLink>
-            <NavLink    
+            <NavLink   
+                        onClick={() => localStorage.removeItem('token')}
                         style={style}
                         activeStyle={{
                         textDecoration: "underline",

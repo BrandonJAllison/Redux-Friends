@@ -12,6 +12,16 @@ const form = {
 
 }
 
+const button ={
+    width: '100px',
+    borderRadius: '15px',
+    border: '2px solid #A0001E',
+    padding: '10px',
+    background: 'white',
+    margin: '20px 0',
+    boxShadow: '0px 2px 4px black'
+}
+
 
 class LogIn extends React.Component{
     state = {
@@ -61,7 +71,7 @@ class LogIn extends React.Component{
                         onChange={this.handleChange}
                         placeholder="password..."
                     />
-                    <button>SUBMIT</button>
+                    <button style={button}>SUBMIT</button>
                     {this.props.loggingIn ? (
                             <h1>Loggin In</h1>
                         ) : (

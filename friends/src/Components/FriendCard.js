@@ -3,7 +3,9 @@ import './Components.css';
 import { connect } from "react-redux";
 import { deleteFriend } from "../Actions";
 
-
+const icon ={
+  color: '#A0001E' 
+}
 const mainDiv ={
     display: 'flex',
     justifyContent: 'center',
