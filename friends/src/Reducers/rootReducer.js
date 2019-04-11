@@ -7,7 +7,6 @@ import {
     FETCH_FAILURE,
     ADD_FRIEND,
     FRIEND_ADDED,
-    DELETING_FRIEND,
     FRIEND_DELETED
    
 
@@ -65,8 +64,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.payload,
-                fetchingFriends: false,
-                
+                fetchingFriends: false,    
             }
 
         case ADD_FRIEND:
@@ -81,14 +79,9 @@ const rootReducer = (state = initialState, action) => {
                 friends: action.payload
             }
 
-          case DELETING_FRIEND:
-            console.log("deleting frd");
             
           case FRIEND_DELETED:
-          return {
-            ...state,
-            friends: action.payload
-        }
+          return { ...state, friends: action.payload };
            
 
     default: return state;    

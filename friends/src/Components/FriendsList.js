@@ -11,10 +11,10 @@ class FriendsList extends React.Component {
     
     
     render() {
-        console.log(this.props.friends)
+        console.log('these are friends' ,this.props.friends)
         return (
             <div>
-                <NavLink 
+                 <NavLink 
                         style={style}
                         activeStyle={{
                         textDecoration: "underline",

@@ -8,8 +8,7 @@ export const FETCH_COMPLETE = "FETCH_COMPLETE";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 export const ADD_FRIEND ="ADD_FRIEND";
 export const FRIEND_ADDED ="FRIEND_ADDED";
-export const DELETING_FRIEND = "DELETINGFRIEND";
-export const FRIEND_DELETED = "FRIENDDELETED";
+export const FRIEND_DELETED = "FRIEND_DELETED";
 
 
 
@@ -73,9 +72,8 @@ export const addFriend = friend => dispatch => {
   
   export const deleteFriend = id => dispatch => {
     console.log("action call, DELETE");
-    dispatch({ type: DELETING_FRIEND });
     axios
-    .delete(`http://localhost:5000/api/friends/${id}`)
+    .delete(`http://localhost:5000/api/friends/${id}`, { headers: { Authorization: localStorage.getItem('token')}})
     .then(response => {
         console.log("DELETED FRIEND");
         dispatch({ type: FRIEND_DELETED, payload: response.data });

@@ -7,7 +7,9 @@ import FriendsList from './Components/FriendsList'
 import AddFriends from './Components/AddFriend'
 import Logout from './Components/Logout'
 import { connect } from 'react-redux';
+
 import Header from './Components/Header'
+
 import logo from './images/logo.png'
 
 
@@ -38,12 +40,15 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => (
-    
-  {
-    friends: state.friends
-  }
-);
 
-export default connect (mapStateToProps, {}) (App);
+const mapStateToProps = state => {
+  return {
+    friends: state.friends,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(App);
 
