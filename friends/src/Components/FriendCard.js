@@ -31,9 +31,10 @@ class FriendCard extends React.Component{
             <div 
                 className={'card-1'}
                 key={this.props.friend.id}>
-                <h2>Name: {this.props.friend.name}</h2>
-                <h3>Age: {this.props.friend.age}</h3>
-                <h3>E-mail: {this.props.friend.email}</h3>
+                <i  className="fas fa-ellipsis-v menu"></i>
+                <h2>Name: {this.props.friend.name} </h2>
+                <h3>Age: {this.props.friend.age} </h3>
+                <h3>E-mail: {this.props.friend.email} </h3>
                 <button style={icon} onClick={() => this.clickHandle(this.props.friend.id)}><i  className="far fa-trash-alt"></i></button>
             </div>
             </div>

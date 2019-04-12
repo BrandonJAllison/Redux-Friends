@@ -20,3 +20,16 @@
   .card-1:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
+
+  .menu {
+    margin-left: 90%;
+    padding: 5px;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #A0001E; 
+  }
+  .menu:hover {
+    transform: rotate(90deg);
+  }
+
+  

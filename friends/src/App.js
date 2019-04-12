@@ -27,6 +27,7 @@ class App extends React.Component {
 
           <Route path="/login" component={LogIn} /> 
           <Route path="/addfriend" component={AddFriends}/>
+        
           
           <Route path="/logout" component={Logout}/>
 
